@@ -14,8 +14,8 @@
 | [📊 金融数据](#-金融数据) | 4 |
 | [🆓 免费资源](#-免费资源) | 4 |
 | [⚡ 效率工具](#-效率工具) | 306 |
+| [📚 学习资源](#-学习资源) | 84 |
 | [📦 其他](#其他) | 6 |
-| [📦 学习资源](#其他) | 84 |
 
 **共收录 422 个项目**（更新至 2026-08-26）
 
@@ -2037,47 +2037,7 @@
 
 ---
 
-## 📦 其他
-
-### [awesome-osint-arsenal](https://github.com/rawfilejson/awesome-osint-arsenal)
-> OSINT 武器库：Volatility、Ghidra 全带安装说明，一条命令全装好。据说连朝鲜黑客都在偷偷用。
-
-- 🏷️ 标签：`OSINT` · `安全`
-- 📅 收录：2026-08-25
-
-### [reverse-skill](https://github.com/zhaoxuya520/reverse-skill)
-> 安全老鸟经验打成可复用技能包，逆向、渗透、CTF 全覆盖，先查路由矩阵选方法论。
-
-- 🏷️ 标签：`安全` · `技能包`
-- 📅 收录：2026-08-25
-
-### [Turbo Fieldfare](https://github.com/drumih/turbo-fieldfare)
-> Metal 4 + Swift 6.2 项目，需 Xcode 26。
-
-- 🏷️ 标签：`macOS` · `Swift`
-- 📅 收录：2026-08-25
-
-### [WordsFunny](https://github.com/SteveSuv/remix-words-funny)
-> 一个全栈英语单词学习网站，涵盖多个版本的词汇资源，提供在线播读、翻译、同义词和例句等功能。
-
-- 🏷️ 标签：`GitHubDaily精选`
-- 📅 收录：2026-08-26 · [原帖](https://github.com/GitHubDaily/GitHubDaily)
-
-### [academic-project-astro-template](https://github.com/RomanHauksson/academic-project-astro-template)
-> 一个基于 Astro 和 Tailwind CSS 构建的精美学术项目页面模版，具有快速加载、响应式设计、易于访问和 SEO 友好等特性，支持使用 Markdown 编辑内容并显示标题、图片、公式、两列布局、代码块和视频等。
-
-- 🏷️ 标签：`GitHubDaily精选`
-- 📅 收录：2026-08-26 · [原帖](https://github.com/GitHubDaily/GitHubDaily)
-
-### [onur.dev](https://github.com/suyalcinkaya/onur.dev)
-> 一个极简风格的三栏式个人主页网站，使用了 Next. js、Tailwind CSS、shadcn / ui、Contentful、Raindrop、Supabase 构建并部署在 Vercel 上，兼容移动端。
-
-- 🏷️ 标签：`GitHubDaily精选`
-- 📅 收录：2026-08-26 · [原帖](https://github.com/GitHubDaily/GitHubDaily)
-
----
-
-## 📦 学习资源
+## 📚 学习资源
 
 ### [Large Language Model in Action](https://github.com/wangwei1237/LLM_in_Action)
 > 一本专注于大语言模型实践应用的开源书籍，通过介绍工具和案例实践，帮助读者快速上手大模型应用开发。
@@ -2581,6 +2541,46 @@
 > 一份由 Google 在 GitHub 上分享的 Gemini API 学习手册，旨在帮助开发者更好地理解和使用 Gemini API，包括使用指南、快速入门教程和示例项目。
 
 - 🏷️ 标签：`资料合集` · `GitHubDaily精选`
+- 📅 收录：2026-08-26 · [原帖](https://github.com/GitHubDaily/GitHubDaily)
+
+---
+
+## 📦 其他
+
+### [awesome-osint-arsenal](https://github.com/rawfilejson/awesome-osint-arsenal)
+> OSINT 武器库：Volatility、Ghidra 全带安装说明，一条命令全装好。据说连朝鲜黑客都在偷偷用。
+
+- 🏷️ 标签：`OSINT` · `安全`
+- 📅 收录：2026-08-25
+
+### [reverse-skill](https://github.com/zhaoxuya520/reverse-skill)
+> 安全老鸟经验打成可复用技能包，逆向、渗透、CTF 全覆盖，先查路由矩阵选方法论。
+
+- 🏷️ 标签：`安全` · `技能包`
+- 📅 收录：2026-08-25
+
+### [Turbo Fieldfare](https://github.com/drumih/turbo-fieldfare)
+> Metal 4 + Swift 6.2 项目，需 Xcode 26。
+
+- 🏷️ 标签：`macOS` · `Swift`
+- 📅 收录：2026-08-25
+
+### [WordsFunny](https://github.com/SteveSuv/remix-words-funny)
+> 一个全栈英语单词学习网站，涵盖多个版本的词汇资源，提供在线播读、翻译、同义词和例句等功能。
+
+- 🏷️ 标签：`GitHubDaily精选`
+- 📅 收录：2026-08-26 · [原帖](https://github.com/GitHubDaily/GitHubDaily)
+
+### [academic-project-astro-template](https://github.com/RomanHauksson/academic-project-astro-template)
+> 一个基于 Astro 和 Tailwind CSS 构建的精美学术项目页面模版，具有快速加载、响应式设计、易于访问和 SEO 友好等特性，支持使用 Markdown 编辑内容并显示标题、图片、公式、两列布局、代码块和视频等。
+
+- 🏷️ 标签：`GitHubDaily精选`
+- 📅 收录：2026-08-26 · [原帖](https://github.com/GitHubDaily/GitHubDaily)
+
+### [onur.dev](https://github.com/suyalcinkaya/onur.dev)
+> 一个极简风格的三栏式个人主页网站，使用了 Next. js、Tailwind CSS、shadcn / ui、Contentful、Raindrop、Supabase 构建并部署在 Vercel 上，兼容移动端。
+
+- 🏷️ 标签：`GitHubDaily精选`
 - 📅 收录：2026-08-26 · [原帖](https://github.com/GitHubDaily/GitHubDaily)
 
 ---

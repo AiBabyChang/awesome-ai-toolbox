@@ -14,14 +14,14 @@ from pathlib import Path
 BASE = Path(__file__).parent
 DATA = BASE / 'data' / 'tools.json'
 
-CATEGORY_ORDER = ['AI Agent', 'AI 视频', 'AI 聊天', '金融数据', '免费资源', '效率工具', '其他']
+CATEGORY_ORDER = ['AI Agent', 'AI 视频', 'AI 聊天', '金融数据', '免费资源', '效率工具', '学习资源', '其他']
 CATEGORY_EMOJI = {
     'AI Agent': '🤖', 'AI 视频': '🎬', 'AI 聊天': '💬', '金融数据': '📊',
-    '免费资源': '🆓', '效率工具': '⚡', '其他': '📦'
+    '免费资源': '🆓', '效率工具': '⚡', '学习资源': '📚', '其他': '📦'
 }
 CATEGORY_ANCHOR = {
     'AI Agent': '-ai-agent', 'AI 视频': '-ai-视频', 'AI 聊天': '-ai-聊天',
-    '金融数据': '-金融数据', '免费资源': '-免费资源', '效率工具': '-效率工具', '其他': '其他'
+    '金融数据': '-金融数据', '免费资源': '-免费资源', '效率工具': '-效率工具', '学习资源': '-学习资源', '其他': '其他'
 }
 
 def load_tools():
