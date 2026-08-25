@@ -320,7 +320,7 @@
     "date": "2026-08-25"
   },
   {
-    "repo": "https://github.com/yt-dmp/yt-dlp",
+    "repo": "https://github.com/yt-dlp/yt-dlp",
     "name": "yt-dlp",
     "desc": "YouTube 下载天花板，开源免费无广告，程序员都在用。",
     "tags": "视频下载,免费",

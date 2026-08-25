@@ -152,7 +152,7 @@
 - 🏷️ 标签：`平替` · `省钱`
 - 📅 收录：2026-08-25 · [原帖](https://x.com/mr_blackmirror/status/2091901140447511011)
 
-### [yt-dlp](https://github.com/yt-dmp/yt-dlp)
+### [yt-dlp](https://github.com/yt-dlp/yt-dlp)
 > YouTube 下载天花板，开源免费无广告，程序员都在用。
 
 - 🏷️ 标签：`视频下载` · `免费`
