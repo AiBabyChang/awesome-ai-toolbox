@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 工具箱 · Awesome AI Toolbox</title>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;--accent:#58a6ff;--green:#3fb950}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding:24px 16px 80px}
+header{text-align:center;padding:36px 0 20px}
+h1{font-size:1.9em;background:linear-gradient(90deg,#58a6ff,#bc8cff,#3fb950);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:var(--muted);margin-top:6px;font-size:.95em}
+.sub a{color:var(--accent);text-decoration:none}
+.stats{display:flex;justify-content:center;gap:18px;margin-top:14px;color:var(--muted);font-size:.9em}
+.stats b{color:var(--text)}
+.search{width:100%;max-width:520px;margin:22px auto 0;display:block;padding:11px 16px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:1em;outline:none}
+.search:focus{border-color:var(--accent)}
+.bar{margin:20px 0 8px}
+.bar .lbl{color:var(--muted);font-size:.85em;margin:10px 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:5px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:var(--muted);cursor:pointer;font-size:.88em;transition:.15s;user-select:none}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip.on{background:var(--accent);color:#0d1117;border-color:var(--accent);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin-top:18px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;transition:.15s;display:flex;flex-direction:column}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.card h3{font-size:1.05em}
+.card h3 a{color:var(--text);text-decoration:none}
+.card h3 a:hover{color:var(--accent)}
+.star{color:var(--green);font-size:.85em;white-space:nowrap}
+.cat{color:var(--muted);font-size:.8em;margin-top:2px}
+.desc{color:var(--muted);font-size:.9em;margin:10px 0;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{padding:2px 10px;border-radius:6px;background:#21262d;color:var(--accent);font-size:.78em;cursor:pointer;border:none}
+.tag:hover{background:var(--accent);color:#0d1117}
+.meta{margin-top:12px;font-size:.78em;color:var(--muted);display:flex;gap:12px}
+.meta a{color:var(--muted)}
+.count{text-align:center;color:var(--muted);margin:26px 0 0;font-size:.9em}
+footer{text-align:center;color:var(--muted);font-size:.8em;margin-top:50px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>🧰 AI 工具箱</h1>
+<div class="sub">每日从 Twitter 精选 GitHub AI 项目 · 中文介绍 · <a href="https://github.com/AiBabyChang/awesome-ai-toolbox" target="_blank">GitHub 仓库</a></div>
+<div class="stats" id="stats"></div>
+<input class="search" id="q" placeholder="🔍 搜索名称 / 介绍 / 标签…">
+</header>
+<div class="bar"><div class="lbl">📂 按分类筛选</div><div class="chips" id="cats"></div></div>
+<div class="bar"><div class="lbl">🏷️ 按标签筛选（可多选）</div><div class="chips" id="tags"></div></div>
+<div class="grid" id="grid"></div>
+<div class="count" id="count"></div>
+<footer>同步发布 · Twitter <a href="https://x.com/Thuweni1" target="_blank">@Thuweni1</a> · 小红书 @Ai.BabyChang</footer>
+</div>
+<script>
+const DATA = [{"repo": "https://github.com/garylab/MakeMoneyWithAI", "name": "MakeMoneyWithAI", "desc": "AI 赚钱项目百科全书，389 个能用 AI 做产品、自动化和变现的开源项目。", "tags": "变现,项目合集", "category": "AI Agent", "stars": "", "source": "https://x.com/goan999999/status/2092246992617615802", "date": "2026-08-25"}, {"repo": "https://github.com/Panniantong/Agent-Reach", "name": "Agent-Reach", "desc": "给 AI Agent 装上全网眼睛。Twitter、Reddit、YouTube、B站、小红书一键读取，零 API 费用。", "tags": "联网,情报", "category": "AI Agent", "stars": "75k+", "source": "https://x.com/goan999999/status/2092246992617615802", "date": "2026-08-25"}, {"repo": "https://github.com/HKUDS/ClawWork", "name": "ClawWork", "desc": "AI 打工经济测试框架，实测 Agent 时薪 2285 美元。", "tags": "Agent经济,评测", "category": "AI Agent", "stars": "", "source": "https://x.com/goan999999/status/2092246992617615802", "date": "2026-08-25"}, {"repo": "https://github.com/block/goose", "name": "goose", "desc": "开源「AI 程序员」，一句话搭项目、装依赖、写代码、跑测试。", "tags": "AI编程,自动化开发", "category": "AI Agent", "stars": "53k+", "source": "https://x.com/goan999999/status/2092246992617615802", "date": "2026-08-25"}, {"repo": "https://github.com/obra/superpowers", "name": "superpowers", "desc": "把整套软件开发流程 Skill 化，让 Agent 按成熟流程干活。", "tags": "工作流,AI编程", "category": "AI Agent", "stars": "277k+", "source": "https://x.com/goan999999/status/2092246992617615802", "date": "2026-08-25"}, {"repo": "https://github.com/harry0703/MoneyPrinterTurbo", "name": "MoneyPrinterTurbo", "desc": "AI 一键生成短视频，真正能赚钱的内容生产线。", "tags": "短视频,内容生产", "category": "AI 视频", "stars": "116k+", "source": "https://x.com/goan999999/status/2092246992617615802", "date": "2026-08-25"}, {"repo": "https://github.com/chatfire-AI/huobao-drama", "name": "火宝短剧 (huobao-drama)", "desc": "短剧全自动流水线：剧本、分镜、配音、合成，Docker 一键起，10分钟出片。", "tags": "短剧,全自动", "category": "AI 视频", "stars": "13.8k", "source": "https://x.com/bkdgiffug/status/2092161556809232501", "date": "2026-08-25"}, {"repo": "https://github.com/HBAI-Ltd/Toonflow-app", "name": "Toonflow", "desc": "专治小说改漫剧，三层 Agent 保角色一致性。", "tags": "漫剧,小说改编", "category": "AI 视频", "stars": "13.5k", "source": "https://x.com/bkdgiffug/status/2092161556809232501", "date": "2026-08-25"}, {"repo": "https://github.com/waooAI/waoowaoo", "name": "waoowaoo", "desc": "工业级全自动 AI 短剧，剧本到成片全包，已有人拿它接单。", "tags": "短剧,接单变现", "category": "AI 视频", "stars": "13.5k", "source": "https://x.com/bkdgiffug/status/2092161556809232501", "date": "2026-08-25"}, {"repo": "https://github.com/MemeCalculate/moyin-creator", "name": "魔因漫创 (moyin-creator)", "desc": "对接 Seedance 2.0 的量产工具，多任务并行、角色锚点防漂移。", "tags": "番剧,量产", "category": "AI 视频", "stars": "4k+", "source": "https://x.com/bkdgiffug/status/2092161556809232501", "date": "2026-08-25"}, {"repo": "https://github.com/danny-avila/LibreChat", "name": "LibreChat", "desc": "一个界面自由切换 ChatGPT、Claude、Gemini、DeepSeek 和本地模型，docker 一行起。", "tags": "多模型,自部署", "category": "AI 聊天", "stars": "40k+", "source": "https://x.com/bkdgiffug/status/2091799420551717139", "date": "2026-08-25"}, {"repo": "https://github.com/HiThink-Tech/Financial-API", "name": "Financial-API (同花顺官方)", "desc": "同花顺官方 A 股数据服务：行情、K线、龙虎榜、财报，API/MCP/CLI/Python 全支持。", "tags": "A股,量化", "category": "金融数据", "stars": "", "source": "https://x.com/yiyirats/status/2091825341278851328", "date": "2026-08-25"}, {"repo": "https://github.com/tashfeenahmed/freellmapi", "name": "FreeLLMAPI", "desc": "34 家平台 635 个免费模型接口聚合成一个 /v1，额度用完自动切下一家。", "tags": "免费API,额度聚合", "category": "免费资源", "stars": "20k", "source": "https://x.com/huoshan007/status/2092115568686145893", "date": "2026-08-25"}, {"repo": "https://github.com/microsoft/markitdown", "name": "markitdown", "desc": "微软文档预处理神器：PDF/Word/PPT/Excel/音视频一键转 Markdown 喂给 LLM。", "tags": "文档处理,微软", "category": "效率工具", "stars": "176k+", "source": "https://x.com/goan999999/status/2092246992617615802", "date": "2026-08-25"}, {"repo": "https://x.com/mr_blackmirror/status/2091901140447511011", "name": "12个付费AI工具免费平替清单", "desc": "ChatGPT→DeepSeek、Midjourney→SD 等12组付费工具免费平替", "tags": "平替,省钱", "category": "免费资源", "stars": "", "source": "https://x.com/mr_blackmirror/status/2091901140447511011", "date": "2026-08-25"}, {"repo": "https://github.com/firecrawl/firecrawl", "name": "Firecrawl", "desc": "丢一个 URL 进去，整站变成结构化数据吐出来，JS 渲染的动态页照样扒。", "tags": "爬虫,数据采集", "category": "效率工具", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/unclecode/crawl4ai", "name": "crawl4ai", "desc": "专门给 LLM 做的爬虫，网页直接转成大模型爱吃的干净文本，免费无 key。7万星。", "tags": "爬虫,LLM", "category": "效率工具", "stars": "70k+", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/browser-use/browser-use", "name": "browser-use", "desc": "让 AI 像真人一样操作浏览器：点击、登录、填表。ETH 学生作品，10万星。", "tags": "浏览器自动化,AI", "category": "效率工具", "stars": "100k+", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/apify/crawlee", "name": "Crawlee", "desc": "代理轮换、自动重试、指纹伪装、队列调度，反爬护甲一次配齐。", "tags": "爬虫,反爬", "category": "效率工具", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/scrapy/scrapy", "name": "Scrapy", "desc": "爬虫界的活化石，百万级页面扛得住，免费开源，教程一搜一大把。", "tags": "爬虫,老牌", "category": "效率工具", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/D4Vinci/Scrapling", "name": "Scrapling", "desc": "网站改版后元素能自动找回，脚本不用重写，免费不输付费货。", "tags": "爬虫,自愈", "category": "效率工具", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/Genymobile/scrcpy", "name": "scrcpy", "desc": "电脑直接控制安卓机，专治只有 App 没有网页的顽固数据源。14万星。", "tags": "安卓,投屏控制", "category": "效率工具", "stars": "140k+", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/alirezamika/autoscraper", "name": "AutoScraper", "desc": "喂几个例子它就自己悟出抓取规则，选择器一行不用手写。", "tags": "爬虫,机器学习", "category": "效率工具", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/lwthiker/curl-impersonate", "name": "curl-impersonate", "desc": "把 curl 的指纹伪装成真浏览器，服务端根本看不出你是脚本。", "tags": "反爬,指纹伪装", "category": "效率工具", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/TauricResearch/TradingAgents", "name": "TradingAgents", "desc": "AI 多 Agent 量化交易框架。", "tags": "量化交易,多Agent", "category": "金融数据", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/heygen-com/hyperframes", "name": "HyperFrames", "desc": "HeyGen 开源的视频生成引擎，一句话生成视频。", "tags": "视频生成", "category": "AI 视频", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/NangoHQ/nango", "name": "Nango", "desc": "开源 API 集成平台，连接数百个第三方服务。", "tags": "API集成", "category": "效率工具", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/cloudflare/agentic-inbox", "name": "Agentic Inbox", "desc": "Cloudflare 的 AI 邮件助手，自动读邮件提炼要点。", "tags": "邮件,AI助手", "category": "效率工具", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/Fincept-Corporation/FinceptTerminal", "name": "Fincept Terminal", "desc": "开源彭博终端，免费查股票和加密货币数据。", "tags": "金融终端,加密货币", "category": "金融数据", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/coollabsio/coolify", "name": "Coolify", "desc": "开源自托管 PaaS，帮人省 Vercel 费用还能收管理费。6万+星。", "tags": "自托管,PaaS", "category": "效率工具", "stars": "60k+", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/n8n-io/n8n", "name": "n8n", "desc": "工作流自动化平台，给企业搭流程收设置费+月维护费。17万+星。", "tags": "自动化,工作流", "category": "效率工具", "stars": "170k+", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/anthropics/skills", "name": "Agent Skills (Claude)", "desc": "Claude Code 官方技能库，常用操作封装成可复用指令。", "tags": "Claude,技能库", "category": "AI Agent", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/yt-dlp/yt-dlp", "name": "yt-dlp", "desc": "YouTube 下载天花板，开源免费无广告，程序员都在用。", "tags": "视频下载,免费", "category": "免费资源", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/rawfilejson/awesome-osint-arsenal", "name": "awesome-osint-arsenal", "desc": "OSINT 武器库：Volatility、Ghidra 全带安装说明，一条命令全装好。据说连朝鲜黑客都在偷偷用。", "tags": "OSINT,安全", "category": "其他", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/zhaoxuya520/reverse-skill", "name": "reverse-skill", "desc": "安全老鸟经验打成可复用技能包，逆向、渗透、CTF 全覆盖，先查路由矩阵选方法论。", "tags": "安全,技能包", "category": "其他", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/dembrandt/dembrandt", "name": "dembrandt", "desc": "2.9k star，TypeScript 写的，更新很勤。", "tags": "CLI工具", "category": "效率工具", "stars": "2.9k", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/leaperone/MultiPost-Extension", "name": "MultiPost-Extension", "desc": "一个浏览器扩展搞定全平台分发，不用再当复制粘贴机器人。", "tags": "内容分发,浏览器扩展", "category": "效率工具", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/lzwme/finance-quant-skills", "name": "finance-quant-skills", "desc": "量化技能包：查行情、拉财务、跑回测，装进 Claude Code/OpenClaw 直接说人话调用。", "tags": "量化,Claude技能", "category": "金融数据", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/mcncarl/yichen-skills", "name": "yichen-skills", "desc": "含 yichen-asr 语音转写：阶跃 Step ASR（一小时一毛五）+ 火山豆包 ASR（一小时一块钱）。", "tags": "语音转写,Claude技能", "category": "效率工具", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/Alishahryar1/free-claude-code", "name": "free-claude-code", "desc": "把 Claude Code 变成统一遥控器，吃各家免费额度。语音留言转文字直接出代码。", "tags": "Claude,免费额度", "category": "免费资源", "stars": "", "source": "", "date": "2026-08-25"}, {"repo": "https://github.com/drumih/turbo-fieldfare", "name": "Turbo Fieldfare", "desc": "Metal 4 + Swift 6.2 项目，需 Xcode 26。", "tags": "macOS,Swift", "category": "其他", "stars": "", "source": "", "date": "2026-08-25"}];
+let fc = null, ft = new Set(), kw = '';
+const catEmoji = {'AI Agent':'🤖','AI 视频':'🎬','AI 聊天':'💬','金融数据':'📊','免费资源':'🆓','效率工具':'⚡','其他':'📦'};
+function init(){
+  const cats = [...new Set(DATA.map(t=>t.category))];
+  document.getElementById('cats').innerHTML =
+    `<span class="chip on" data-c="">全部 ${DATA.length}</span>` +
+    cats.map(c=>`<span class="chip" data-c="${c}">${catEmoji[c]||'📦'} ${c} ${DATA.filter(t=>t.category===c).length}</span>`).join('');
+  const tagCount = {};
+  DATA.forEach(t=>(t.tags||'').split(',').map(x=>x.trim()).filter(Boolean).forEach(x=>tagCount[x]=(tagCount[x]||0)+1));
+  const tags = Object.entries(tagCount).sort((a,b)=>b[1]-a[1]);
+  document.getElementById('tags').innerHTML = tags.map(([t,n])=>`<span class="chip" data-t="${t}">${t} ${n}</span>`).join('');
+  document.getElementById('stats').innerHTML =
+    `<span>📦 项目 <b>${DATA.length}</b></span><span>🏷️ 标签 <b>${tags.length}</b></span><span>📂 分类 <b>${cats.length}</b></span>`;
+  render();
+}
+function render(){
+  let list = DATA.filter(t=>{
+    if(fc && t.category!==fc) return false;
+    const tt = (t.tags||'').split(',').map(x=>x.trim());
+    for(const need of ft) if(!tt.includes(need)) return false;
+    if(kw){
+      const hay = (t.name+t.desc+(t.tags||'')+t.category).toLowerCase();
+      if(!hay.includes(kw)) return false;
+    }
+    return true;
+  });
+  document.getElementById('grid').innerHTML = list.map(t=>`
+  <div class="card">
+    <div class="top"><h3><a href="${t.repo}" target="_blank">${t.name}</a></h3>${t.stars?`<span class="star">⭐${t.stars}</span>`:''}</div>
+    <div class="cat">${catEmoji[t.category]||'📦'} ${t.category}</div>
+    <div class="desc">${t.desc}</div>
+    <div class="tags">${(t.tags||'').split(',').map(x=>x.trim()).filter(Boolean).map(x=>`<button class="tag" onclick="tg('${x}')">${x}</button>`).join('')}</div>
+    <div class="meta"><span>${t.date}</span>${t.source?`<a href="${t.source}" target="_blank">原帖 ↗</a>`:''}</div>
+  </div>`).join('');
+  document.getElementById('count').textContent = list.length ? `显示 ${list.length} / ${DATA.length} 个项目` : '没有匹配的项目，换个条件试试';
+}
+function tg(x){ ft.has(x)?ft.delete(x):ft.add(x); render(); syncChips(); }
+document.getElementById('cats').addEventListener('click',e=>{
+  const c=e.target.dataset.c; if(c===undefined)return;
+  fc = c||null; syncChips(); render();
+});
+document.getElementById('tags').addEventListener('click',e=>{
+  const t=e.target.dataset.t; if(t===undefined)return;
+  ft.has(t)?ft.delete(t):ft.add(t); syncChips(); render();
+});
+function syncChips(){
+  document.querySelectorAll('#cats .chip').forEach(el=>el.classList.toggle('on',(el.dataset.c||'')===(fc||'')));
+  document.querySelectorAll('#tags .chip').forEach(el=>el.classList.toggle('on',ft.has(el.dataset.t)));
+}
+document.getElementById('q').addEventListener('input',e=>{kw=e.target.value.trim().toLowerCase();render();});
+init();
+</script>
+</body>
+</html>
