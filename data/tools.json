@@ -1,0 +1,152 @@
+[
+  {
+    "repo": "https://github.com/garylab/MakeMoneyWithAI",
+    "name": "MakeMoneyWithAI",
+    "desc": "AI 赚钱项目百科全书，389 个能用 AI 做产品、自动化和变现的开源项目。",
+    "tags": "变现,项目合集",
+    "category": "AI Agent",
+    "stars": "",
+    "source": "https://x.com/goan999999/status/2092246992617615802",
+    "date": "2026-08-25"
+  },
+  {
+    "repo": "https://github.com/Panniantong/Agent-Reach",
+    "name": "Agent-Reach",
+    "desc": "给 AI Agent 装上全网眼睛。Twitter、Reddit、YouTube、B站、小红书一键读取，零 API 费用。",
+    "tags": "联网,情报",
+    "category": "AI Agent",
+    "stars": "75k+",
+    "source": "https://x.com/goan999999/status/2092246992617615802",
+    "date": "2026-08-25"
+  },
+  {
+    "repo": "https://github.com/HKUDS/ClawWork",
+    "name": "ClawWork",
+    "desc": "AI 打工经济测试框架，实测 Agent 时薪 2285 美元。",
+    "tags": "Agent经济,评测",
+    "category": "AI Agent",
+    "stars": "",
+    "source": "https://x.com/goan999999/status/2092246992617615802",
+    "date": "2026-08-25"
+  },
+  {
+    "repo": "https://github.com/block/goose",
+    "name": "goose",
+    "desc": "开源「AI 程序员」，一句话搭项目、装依赖、写代码、跑测试。",
+    "tags": "AI编程,自动化开发",
+    "category": "AI Agent",
+    "stars": "53k+",
+    "source": "https://x.com/goan999999/status/2092246992617615802",
+    "date": "2026-08-25"
+  },
+  {
+    "repo": "https://github.com/obra/superpowers",
+    "name": "superpowers",
+    "desc": "把整套软件开发流程 Skill 化，让 Agent 按成熟流程干活。",
+    "tags": "工作流,AI编程",
+    "category": "AI Agent",
+    "stars": "277k+",
+    "source": "https://x.com/goan999999/status/2092246992617615802",
+    "date": "2026-08-25"
+  },
+  {
+    "repo": "https://github.com/harry0703/MoneyPrinterTurbo",
+    "name": "MoneyPrinterTurbo",
+    "desc": "AI 一键生成短视频，真正能赚钱的内容生产线。",
+    "tags": "短视频,内容生产",
+    "category": "AI 视频",
+    "stars": "116k+",
+    "source": "https://x.com/goan999999/status/2092246992617615802",
+    "date": "2026-08-25"
+  },
+  {
+    "repo": "https://github.com/chatfire-AI/huobao-drama",
+    "name": "火宝短剧 (huobao-drama)",
+    "desc": "短剧全自动流水线：剧本、分镜、配音、合成，Docker 一键起，10分钟出片。",
+    "tags": "短剧,全自动",
+    "category": "AI 视频",
+    "stars": "13.8k",
+    "source": "https://x.com/bkdgiffug/status/2092161556809232501",
+    "date": "2026-08-25"
+  },
+  {
+    "repo": "https://github.com/HBAI-Ltd/Toonflow-app",
+    "name": "Toonflow",
+    "desc": "专治小说改漫剧，三层 Agent 保角色一致性。",
+    "tags": "漫剧,小说改编",
+    "category": "AI 视频",
+    "stars": "13.5k",
+    "source": "https://x.com/bkdgiffug/status/2092161556809232501",
+    "date": "2026-08-25"
+  },
+  {
+    "repo": "https://github.com/waooAI/waoowaoo",
+    "name": "waoowaoo",
+    "desc": "工业级全自动 AI 短剧，剧本到成片全包，已有人拿它接单。",
+    "tags": "短剧,接单变现",
+    "category": "AI 视频",
+    "stars": "13.5k",
+    "source": "https://x.com/bkdgiffug/status/2092161556809232501",
+    "date": "2026-08-25"
+  },
+  {
+    "repo": "https://github.com/MemeCalculate/moyin-creator",
+    "name": "魔因漫创 (moyin-creator)",
+    "desc": "对接 Seedance 2.0 的量产工具，多任务并行、角色锚点防漂移。",
+    "tags": "番剧,量产",
+    "category": "AI 视频",
+    "stars": "4k+",
+    "source": "https://x.com/bkdgiffug/status/2092161556809232501",
+    "date": "2026-08-25"
+  },
+  {
+    "repo": "https://github.com/danny-avila/LibreChat",
+    "name": "LibreChat",
+    "desc": "一个界面自由切换 ChatGPT、Claude、Gemini、DeepSeek 和本地模型，docker 一行起。",
+    "tags": "多模型,自部署",
+    "category": "AI 聊天",
+    "stars": "40k+",
+    "source": "https://x.com/bkdgiffug/status/2091799420551717139",
+    "date": "2026-08-25"
+  },
+  {
+    "repo": "https://github.com/HiThink-Tech/Financial-API",
+    "name": "Financial-API (同花顺官方)",
+    "desc": "同花顺官方 A 股数据服务：行情、K线、龙虎榜、财报，API/MCP/CLI/Python 全支持。",
+    "tags": "A股,量化",
+    "category": "金融数据",
+    "stars": "",
+    "source": "https://x.com/yiyirats/status/2091825341278851328",
+    "date": "2026-08-25"
+  },
+  {
+    "repo": "https://freellmapi.co",
+    "name": "FreeLLMAPI",
+    "desc": "34 家平台 635 个免费模型接口聚合成一个 /v1，额度用完自动切下一家。",
+    "tags": "免费API,额度聚合",
+    "category": "免费资源",
+    "stars": "20k",
+    "source": "https://x.com/huoshan007/status/2092115568686145893",
+    "date": "2026-08-25"
+  },
+  {
+    "repo": "https://github.com/microsoft/markitdown",
+    "name": "markitdown",
+    "desc": "微软文档预处理神器：PDF/Word/PPT/Excel/音视频一键转 Markdown 喂给 LLM。",
+    "tags": "文档处理,微软",
+    "category": "效率工具",
+    "stars": "176k+",
+    "source": "https://x.com/goan999999/status/2092246992617615802",
+    "date": "2026-08-25"
+  },
+  {
+    "repo": "https://x.com/mr_blackmirror/status/2091901140447511011",
+    "name": "12个付费AI工具免费平替清单",
+    "desc": "ChatGPT→DeepSeek、Midjourney→SD 等12组付费工具免费平替",
+    "tags": "平替,省钱",
+    "category": "免费资源",
+    "stars": "",
+    "source": "https://x.com/mr_blackmirror/status/2091901140447511011",
+    "date": "2026-08-25"
+  }
+]
